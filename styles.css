@@ -1,0 +1,491 @@
+/* ==========================================================================
+   Invo — web pública
+   Estilos basados en los tokens reales de la app (src/theme/colors.ts).
+   HTML plano, sin JavaScript y sin recursos externos: la política debe
+   cargar siempre, incluso con JS bloqueado o red lenta.
+   ========================================================================== */
+
+:root {
+    /* Marca */
+    --primary: #0077F0;
+    --primary-bright: #0380F8;
+    --primary-deep: #02327E;
+    --navy: #0D2850;
+    --deep-navy: #04173B;
+    --soft-blue: #C8E1F9;
+    --blue-surface: #D7E9FB;
+    --light-surface: #ECF3FC;
+
+    /* Neutros y textos */
+    --background: #F7F9FD;
+    --surface: #FFFFFF;
+    --text-primary: #04173B;
+    --text-secondary: #2C5474;
+    --text-muted: #748BA5;
+
+    /* Semánticos */
+    --warning: #F59E0B;
+    --warning-light: #FEF3C7;
+    --warning-text: #854D0E;
+    --success: #22C55E;
+    --success-light: #DCFCE7;
+    --success-text: #166534;
+    --danger: #EF4444;
+    --danger-light: #FEE2E2;
+
+    /* Formas */
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-2xl: 28px;
+    --radius-full: 999px;
+
+    --shadow-card: 0 10px 24px rgba(4, 23, 59, 0.06);
+    --shadow-hero: 0 18px 40px rgba(0, 119, 240, 0.28);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    padding: 0 20px 64px;
+    background: var(--background);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.68;
+}
+
+.wrap { max-width: 820px; margin: 0 auto; }
+
+svg { width: 22px; height: 22px; display: block; }
+
+/* ── Hero con degradado (igual que la tarjeta de resumen de la app) ── */
+.hero {
+    position: relative;
+    overflow: hidden;
+    margin-top: 24px;
+    padding: 30px 28px 26px;
+    border-radius: var(--radius-2xl);
+    background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary) 58%, var(--primary-bright) 100%);
+    box-shadow: var(--shadow-hero);
+    color: #fff;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -90px;
+    right: -70px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: -120px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.hero > * { position: relative; }
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.marca .logo {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.18);
+    display: grid;
+    place-items: center;
+    color: #fff;
+}
+
+.marca .nombre {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.hero h1 {
+    margin: 0 0 6px;
+    font-size: 32px;
+    line-height: 1.18;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+}
+
+.hero .subtitulo {
+    margin: 0 0 20px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.18);
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.pill svg { width: 14px; height: 14px; }
+
+/* Línea de metadatos del hero: aquí van los textos largos, no en los pills */
+.hero-meta {
+    margin: 14px 0 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Tarjetas ── */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--soft-blue);
+    border-radius: var(--radius-xl);
+    padding: 22px 24px;
+    box-shadow: var(--shadow-card);
+    margin: 22px 0;
+}
+
+.card > :last-child { margin-bottom: 0; }
+
+.card.destacada {
+    border-left: 5px solid var(--success);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.card.destacada .ico-grande {
+    flex: 0 0 auto;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-lg);
+    background: var(--success-light);
+    color: var(--success);
+    display: grid;
+    place-items: center;
+}
+
+.card.destacada .ico-grande svg { width: 24px; height: 24px; }
+
+/* ── Encabezado de sección con icono en círculo pastel ── */
+.sec {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 38px 0 12px;
+}
+
+.sec .ico {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: var(--blue-surface);
+    color: var(--primary-deep);
+    display: grid;
+    place-items: center;
+}
+
+.sec .ico.verde { background: var(--success-light); color: var(--success-text); }
+.sec .ico.rojo { background: var(--danger-light); color: #B91C1C; }
+.sec .ico.ambar { background: var(--warning-light); color: var(--warning-text); }
+
+.sec h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 750;
+    color: var(--text-primary);
+    letter-spacing: -0.005em;
+}
+
+/* ── Texto ── */
+p { margin: 0 0 14px; color: var(--text-secondary); }
+h3 { margin: 24px 0 8px; font-size: 17px; color: var(--text-primary); }
+ul { margin: 0 0 16px; padding-left: 4px; list-style: none; }
+li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+li::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary);
+}
+li ul { margin-top: 8px; }
+
+strong { color: var(--text-primary); font-weight: 700; }
+a { color: var(--primary); text-decoration: none; border-bottom: 1px solid var(--soft-blue); }
+a:hover { border-bottom-color: var(--primary); }
+
+code {
+    background: var(--light-surface);
+    border: 1px solid var(--soft-blue);
+    border-radius: 6px;
+    padding: 1px 6px;
+    font-size: 15px;
+    color: var(--primary-deep);
+}
+
+/* ── Avisos ── */
+.aviso {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: var(--warning-light);
+    border: 1px solid #FCD34D;
+    border-radius: var(--radius-xl);
+    padding: 20px 22px;
+    margin: 22px 0;
+}
+
+.aviso .ico-aviso {
+    flex: 0 0 auto;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: rgba(245, 158, 11, 0.22);
+    color: var(--warning-text);
+    display: grid;
+    place-items: center;
+}
+
+.aviso p, .aviso strong { color: var(--warning-text); }
+.aviso p:last-child { margin-bottom: 0; }
+.aviso ol { margin: 6px 0 0; padding-left: 20px; }
+.aviso li { color: var(--warning-text); padding-left: 4px; margin-bottom: 10px; }
+.aviso li::before { display: none; }
+.aviso li:last-child { margin-bottom: 0; }
+
+/* ── Tabla de permisos ── */
+.tabla {
+    border: 1px solid var(--soft-blue);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    margin: 8px 0 20px;
+    background: var(--surface);
+    box-shadow: var(--shadow-card);
+}
+
+/* table-layout: fixed es lo que impide que la tabla ensanche la página:
+   reparte el ancho del contenedor y hace que el texto se ajuste dentro. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15.5px;
+    table-layout: fixed;
+}
+
+th, td {
+    text-align: left;
+    padding: 13px 18px;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+th {
+    background: var(--blue-surface);
+    color: var(--primary-deep);
+    font-weight: 750;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+td { color: var(--text-secondary); border-top: 1px solid var(--soft-blue); }
+td:first-child { font-weight: 650; color: var(--text-primary); width: 28%; }
+td:last-child { width: 24%; }
+
+/* ── Contacto y pie ── */
+.contacto {
+    background: linear-gradient(135deg, var(--blue-surface) 0%, var(--light-surface) 100%);
+    border: 1px solid var(--soft-blue);
+    border-radius: var(--radius-xl);
+    padding: 22px 24px;
+    margin: 22px 0 28px;
+}
+
+.contacto p { margin: 0; color: var(--text-secondary); }
+.contacto strong { color: var(--primary-deep); }
+
+footer.pie {
+    margin-top: 44px;
+    padding: 22px 24px;
+    border-radius: var(--radius-xl);
+    background: var(--surface);
+    border: 1px solid var(--soft-blue);
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+footer.pie p { margin: 0 0 6px; color: var(--text-muted); font-size: 14px; }
+footer.pie p:last-child { margin-bottom: 0; }
+
+/* ── Botones pill ── */
+.botones { display: flex; flex-wrap: wrap; gap: 12px; margin: 26px 0 8px; }
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-bright) 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px 28px;
+    border-radius: var(--radius-full);
+    box-shadow: 0 12px 24px rgba(0, 119, 240, 0.30);
+    border: none;
+}
+
+.boton.secundario {
+    background: var(--surface);
+    color: var(--primary-deep);
+    border: 1.5px solid var(--primary);
+    box-shadow: none;
+}
+
+/* ── Marcadores por reemplazar ── */
+.relleno {
+    background: var(--danger-light);
+    color: #B91C1C;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+/* ── Rejilla de acciones (misma idea que el dashboard de la app) ── */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 10px 0 22px;
+}
+
+.accion {
+    background: var(--surface);
+    border: 1px solid var(--soft-blue);
+    border-radius: var(--radius-xl);
+    padding: 18px 18px 20px;
+    box-shadow: var(--shadow-card);
+}
+
+.accion .ico {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 12px;
+}
+
+.accion h3 { margin: 0 0 4px; font-size: 16px; font-weight: 750; }
+.accion p { margin: 0; font-size: 14.5px; color: var(--text-muted); line-height: 1.5; }
+
+.ico.azul   { background: var(--blue-surface);  color: var(--primary-deep); }
+.ico.verde2 { background: var(--success-light); color: var(--success-text); }
+.ico.rojo2  { background: var(--danger-light);  color: #B91C1C; }
+.ico.morado { background: #EDE9FE;              color: #6D28D9; }
+
+@media (max-width: 560px) {
+    .grid { grid-template-columns: 1fr; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+    body { font-size: 16px; padding: 0 16px 48px; }
+    .hero { padding: 26px 22px 22px; }
+    .hero h1 { font-size: 26px; }
+    .sec h2 { font-size: 18px; }
+    .card, .aviso, .contacto { padding: 18px 18px; }
+    .card.destacada, .aviso { flex-direction: column; gap: 12px; }
+    .boton { width: 100%; justify-content: center; }
+
+    /* Tabla de permisos → tarjetas apiladas */
+    .tabla table, .tabla tr, .tabla td { display: block; width: auto; }
+    .tabla tr:first-child { display: none; }
+    .tabla tr {
+        padding: 16px 18px;
+        border-top: 1px solid var(--soft-blue);
+    }
+    .tabla tr:first-of-type { border-top: none; }
+    .tabla td { border: none; padding: 0; }
+    .tabla td:first-child {
+        width: auto !important;
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+    .tabla td:nth-child(2) {
+        width: auto !important;
+        font-size: 14.5px;
+        line-height: 1.55;
+    }
+    .tabla td:last-child {
+        width: auto !important;
+        margin-top: 9px;
+        font-size: 13.5px;
+        color: var(--text-muted);
+    }
+    .tabla td:last-child::before {
+        content: "Obligatorio: ";
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+}
+
+/* ── Impresión ── */
+@media print {
+    body { background: #fff; padding: 0; font-size: 11.5pt; color: #000; }
+    .hero {
+        background: none !important;
+        color: #000;
+        box-shadow: none;
+        border: 1px solid #999;
+        padding: 16px 18px;
+    }
+    .hero h1 { font-size: 18pt; }
+    .hero .subtitulo, .pill { color: #333; }
+    .pill { background: #eee; }
+    .marca .logo { background: #eee; color: #333; }
+    .card, .tabla, .aviso, .contacto { box-shadow: none; page-break-inside: avoid; }
+    .sec { page-break-after: avoid; }
+    .botones { display: none; }
+    a { color: #000; border: none; }
+}

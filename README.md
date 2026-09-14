@@ -39,19 +39,26 @@ Comprobación rápida de que no quedó ninguno:
 Select-String -Path .\index.html, .\privacidad\index.html -Pattern "\["
 ```
 
-## Publicar en Cloudflare Pages
+## Publicar en GitHub Pages
 
-1. Entra a <https://dash.cloudflare.com> → **Workers & Pages** → **Create** → **Pages**.
-2. Elige **Upload assets** (no necesitas repo de Git) y sube el contenido de esta carpeta.
-   - Importante: sube el **contenido**, no la carpeta como nivel extra, para que
-     `index.html` quede en la raíz.
-3. Ponle un nombre al proyecto, por ejemplo `invo`.
-4. Quedará publicado en `https://invo.pages.dev` y la política en
-   `https://invo.pages.dev/privacidad`.
-5. Cuando tengas dominio propio, añádelo en **Custom domains** y cambia la URL en Play Console.
+1. Crea un repositorio **público** en <https://github.com/new> llamado
+   `InvePos-privacy-policy` (sin README, sin `.gitignore` y sin licencia).
+2. Desde esta carpeta, conecta y sube:
 
-> Alternativa: si prefieres Git, sube esta carpeta a un repositorio y conéctalo.
-> Cada push republica solo.
+   ```powershell
+   git remote add origin https://github.com/TU-USUARIO/InvePos-privacy-policy.git
+   git push -u origin main
+   ```
+
+3. En el repositorio: **Settings → Pages** → *Source*: **Deploy from a branch** →
+   rama `main`, carpeta `/ (root)` → **Save**.
+4. En 1-2 minutos quedará publicado en
+   `https://TU-USUARIO.github.io/InvePos-privacy-policy/` y la política en
+   `https://TU-USUARIO.github.io/InvePos-privacy-policy/privacidad/`.
+5. Cuando tengas dominio propio, añádelo en **Settings → Pages → Custom domain** y
+   cambia la URL en Play Console.
+
+> Cada `git push` a `main` republica el sitio automáticamente.
 
 ## Coherencia con el formulario "Seguridad de los datos" de Play
 

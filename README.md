@@ -20,20 +20,21 @@ La URL que registrarás en Play Console es:
 https://TU-DOMINIO/privacidad
 ```
 
-## ANTES DE PUBLICAR: reemplaza los marcadores
+## Estado de los marcadores
 
-Busca y reemplaza en `index.html` y en `privacidad/index.html`. Aparecen en rojo en la web
-para que no se te escapen:
+Los marcadores ya fueron reemplazados por los datos reales del responsable:
 
-| Marcador | Qué poner |
+| Dato | Valor |
 |---|---|
-| `[NOMBRE COMPLETO O RAZON SOCIAL DEL RESPONSABLE]` | Tu nombre legal o el de tu empresa, tal como aparecerá en Play |
-| `[CORREO DE CONTACTO]` | Un correo real que revises. Play y los usuarios lo usarán |
-| `[CIUDAD Y PAIS]` | Tu ciudad y país |
-| `[FECHA DE ENTRADA EN VIGENCIA]` | Fecha en que publicas la política, ej. `12 de septiembre de 2026` |
-| `[FECHA DE ULTIMA ACTUALIZACION]` | La misma fecha la primera vez |
+| Responsable | SauvDev |
+| Correo de contacto | soporteinvepos@gmail.com |
+| Ciudad y país | Santiago, República Dominicana |
 
-Comprobación rápida de que no quedó ninguno:
+Las fechas de vigencia y de última actualización se retiraron del documento: la versión se
+indica con la etiqueta `Versión 1.0` del encabezado. Si más adelante quieres fecharlo, vuelve
+a añadir el párrafo correspondiente en `privacidad/index.html`.
+
+Comprobación rápida de que no quedó ningún corchete:
 
 ```powershell
 Select-String -Path .\index.html, .\privacidad\index.html -Pattern "\["

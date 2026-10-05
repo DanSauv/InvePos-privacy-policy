@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dansauv.github.io/InvePos-privacy-policy/sitemap.xml
+Sitemap: https://invepos.com/sitemap.xml

@@ -40,12 +40,12 @@ InvePos-privacy-policy/
 | Soporte | `/soporte/` |
 | Eliminación de datos | `/eliminar-datos/` |
 
-**Todas las rutas internas son relativas**, así que el sitio funciona igual en
-`usuario.github.io/nombre-repo/` y en un dominio propio, donde queda:
+**Todas las rutas internas son relativas**, así que el sitio funciona igual en GitHub Pages
+(`dansauv.github.io/InvePos-privacy-policy/`) y en el dominio propio, que es el oficial:
 
 ```
-https://tudominio.com/                      → el sitio de InvePos
-https://tudominio.com/politica-de-privacidad/   → la política que se registra en Play
+https://invepos.com/                      → el sitio de InvePos
+https://invepos.com/politica-de-privacidad/   → la política que se registra en Play
 ```
 
 > `/privacidad/` se conserva como **puente** (redirección) para no romper enlaces ya
@@ -58,10 +58,8 @@ https://tudominio.com/politica-de-privacidad/   → la política que se registra
 2. `git add -A && git commit -m "..." && git push`
 3. GitHub Pages republica solo, en 1-2 minutos.
 
-> Para publicar con dominio propio: **Settings → Pages → Custom domain**, y luego crear los
-> registros DNS que indica GitHub. El archivo `CNAME.ejemplo` sirve de plantilla: se
-> renombra a `CNAME` **solo cuando el DNS ya apunta a GitHub**; si se sube antes, el sitio
-> deja de responder en la dirección `github.io`.
+> **Dominio oficial: `invepos.com`** (en Cloudflare). El archivo `CNAME.ejemplo` queda solo
+> como referencia del antiguo plan de GitHub Pages; el sitio se publica en Cloudflare.
 
 ## Contenido de la versión 1.1 (5 de octubre de 2026)
 
@@ -92,5 +90,5 @@ Cuando el sitio esté publicado con el dominio definitivo, actualizar:
 
 | Fecha | Cambio |
 |---|---|
-| 2026-10-05 | v1.1: respaldo en Google Drive, 3 páginas nuevas, política en `/politica-de-privacidad/`, rutas relativas |
+| 2026-10-05 | v1.1: respaldo en Google Drive, 3 páginas nuevas, política en `/politica-de-privacidad/`, dominio propio `invepos.com` |
 | 2026-09-14 | Versión inicial (portada + política de privacidad) |

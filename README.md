@@ -11,31 +11,46 @@ archivo CSS y dos imágenes propias.
 
 ```
 InvePos-privacy-policy/
-├── index.html              → portada
-├── 404.html                → página no encontrada
-├── privacidad/index.html   → POLÍTICA DE PRIVACIDAD   →  /privacidad/
-├── terminos/index.html     → Términos y Condiciones   →  /terminos/
-├── soporte/index.html      → Soporte y preguntas frecuentes  →  /soporte/
-├── eliminar-datos/index.html → Eliminación de datos   →  /eliminar-datos/
+├── index.html                    → portada
+├── 404.html                      → página no encontrada
+├── politica-de-privacidad/
+│   └── index.html                → POLÍTICA DE PRIVACIDAD
+├── privacidad/
+│   └── index.html                → puente: redirige a /politica-de-privacidad/
+├── terminos/index.html           → Términos y Condiciones
+├── soporte/index.html            → Soporte y preguntas frecuentes
+├── eliminar-datos/index.html     → Eliminación de datos
 ├── assets/
-│   ├── estilos.css         → estilos compartidos
-│   ├── icono.png           → logo / favicon
-│   └── mascota.png         → mascota de la portada
+│   ├── estilos.css               → estilos compartidos
+│   ├── icono.png                 → logo / favicon
+│   └── mascota.png               → mascota de la portada
 ├── robots.txt
 ├── sitemap.xml
-├── CNAME.ejemplo           → plantilla para cuando se conecte el dominio propio
+├── CNAME.ejemplo                 → plantilla para cuando se conecte el dominio propio
 └── README.md
 ```
 
-Las URLs que se registran en Play Console y en Google Cloud son:
+## URLs
 
-```
-https://dansauv.github.io/InvePos-privacy-policy/privacidad/
-```
+| Página | Dirección |
+|---|---|
+| Portada | `/` |
+| Política de privacidad | `/politica-de-privacidad/` |
+| Términos y condiciones | `/terminos/` |
+| Soporte | `/soporte/` |
+| Eliminación de datos | `/eliminar-datos/` |
 
 **Todas las rutas internas son relativas**, así que el sitio funciona igual en
-`usuario.github.io/nombre-repo/` y en un dominio propio (donde pasa a ser
-`https://tudominio.com/privacidad/`).
+`usuario.github.io/nombre-repo/` y en un dominio propio, donde queda:
+
+```
+https://tudominio.com/                      → el sitio de InvePos
+https://tudominio.com/politica-de-privacidad/   → la política que se registra en Play
+```
+
+> `/privacidad/` se conserva como **puente** (redirección) para no romper enlaces ya
+> registrados en Google Cloud o Play Console. Cuando ambas URLs estén actualizadas, ese
+> puente puede quedarse: no molesta.
 
 ## Cómo actualizar el sitio
 
@@ -59,6 +74,7 @@ Esta versión refleja los cambios de la app: **respaldo en Google Drive**.
 - Se corrigió la afirmación anterior *"no creamos cuentas ni pedimos inicio de sesión"*, que
   dejó de ser cierta al añadirse la conexión opcional con Google.
 - Páginas nuevas: Términos y Condiciones, Soporte (FAQ) y Eliminación de datos.
+- La política pasó de `/privacidad/` a `/politica-de-privacidad/`.
 
 ## Pendientes del lado de Google / Play
 
@@ -76,5 +92,5 @@ Cuando el sitio esté publicado con el dominio definitivo, actualizar:
 
 | Fecha | Cambio |
 |---|---|
-| 2026-10-05 | v1.1: respaldo en Google Drive, 3 páginas nuevas, rutas relativas, rediseño con la identidad de la app |
+| 2026-10-05 | v1.1: respaldo en Google Drive, 3 páginas nuevas, política en `/politica-de-privacidad/`, rutas relativas |
 | 2026-09-14 | Versión inicial (portada + política de privacidad) |

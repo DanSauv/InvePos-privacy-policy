@@ -44,8 +44,8 @@ InvePos-privacy-policy/
 (`dansauv.github.io/InvePos-privacy-policy/`) y en el dominio propio, que es el oficial:
 
 ```
-https://invepos.com/                      → el sitio de InvePos
-https://invepos.com/politica-de-privacidad/   → la política que se registra en Play
+https://www.invepos.com/                      → el sitio de InvePos
+https://www.invepos.com/politica-de-privacidad/   → la política que se registra en Play
 ```
 
 > `/privacidad/` se conserva como **puente** (redirección) para no romper enlaces ya
